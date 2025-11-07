@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Países - CRUD Mundo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🌍 CRUD Mundo - Países</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="paises.html" class="active">Países</a></li>
+                <li><a href="cidades.html">Cidades</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="crud-section">
+            <div class="section-header">
+                <h2>Gerenciamento de Países</h2>
+                <button class="btn btn-primary" onclick="abrirModalCriar()">➕ Novo País</button>
+            </div>
+
+            <!-- Barra de Pesquisa -->
+            <div class="search-bar">
+                <input type="text" id="search-paises" placeholder="🔍 Buscar país..." onkeyup="filtrarPaises()">
+            </div>
+
+            <!-- Lista de Países -->
+            <div class="table-container">
+                <table id="tabela-paises">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Nome Oficial</th>
+                            <th>Continente</th>
+                            <th>População</th>
+                            <th>Idioma</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-paises">
+                        <!-- Países serão carregados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Criar/Editar País -->
+    <div id="modal-pais" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h3 id="modal-titulo">Novo País</h3>
+            <form id="form-pais" onsubmit="salvarPais(event)">
+                <input type="hidden" id="pais-id">
+                
+                <div class="form-group">
+                    <label for="pais-nome">Nome:</label>
+                    <input type="text" id="pais-nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pais-nome-oficial">Nome Oficial:</label>
+                    <input type="text" id="pais-nome-oficial" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pais-continente">Continente:</label>
+                    <select id="pais-continente" required>
+                        <option value="">Selecione...</option>
+                        <option value="África">África</option>
+                        <option value="América do Norte">América do Norte</option>
+                        <option value="América do Sul">América do Sul</option>
+                        <option value="Ásia">Ásia</option>
+                        <option value="Europa">Europa</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pais-populacao">População:</label>
+                    <input type="number" id="pais-populacao" required min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="pais-idioma">Idioma Principal:</label>
+                    <input type="text" id="pais-idioma" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pais-moeda">Moeda:</label>
+                    <input type="text" id="pais-moeda">
+                </div>
+
+                <div class="form-group">
+                    <label for="pais-capital">Capital:</label>
+                    <input type="text" id="pais-capital">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="fecharModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Informações da API -->
+    <div id="modal-api-info" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalApi()">&times;</span>
+            <h3>Informações do País</h3>
+            <div id="api-info-content">
+                <!-- Conteúdo da API será carregado aqui -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CRUD Mundo - Desenvolvido para Atividade Avaliativa</p>
+    </footer>
+
+    <script src="js/paises.js"></script>
+</body>
+</html>

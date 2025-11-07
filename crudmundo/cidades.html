@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Cidades - CRUD Mundo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>🌍 CRUD Mundo - Cidades</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="paises.html">Países</a></li>
+                <li><a href="cidades.html" class="active">Cidades</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="crud-section">
+            <div class="section-header">
+                <h2>Gerenciamento de Cidades</h2>
+                <button class="btn btn-primary" onclick="abrirModalCriarCidade()">🏙️ Nova Cidade</button>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filters">
+                <select id="filtro-pais" onchange="filtrarCidades()">
+                    <option value="">Todos os países</option>
+                </select>
+                <input type="text" id="search-cidades" placeholder="🔍 Buscar cidade..." onkeyup="filtrarCidades()">
+            </div>
+
+            <!-- Lista de Cidades -->
+            <div class="table-container">
+                <table id="tabela-cidades">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>População</th>
+                            <th>País</th>
+                            <th>Coordenadas</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-cidades">
+                        <!-- Cidades serão carregadas via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para Criar/Editar Cidade -->
+    <div id="modal-cidade" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalCidade()">&times;</span>
+            <h3 id="modal-titulo-cidade">Nova Cidade</h3>
+            <form id="form-cidade" onsubmit="salvarCidade(event)">
+                <input type="hidden" id="cidade-id">
+                
+                <div class="form-group">
+                    <label for="cidade-nome">Nome:</label>
+                    <input type="text" id="cidade-nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade-populacao">População:</label>
+                    <input type="number" id="cidade-populacao" required min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade-pais">País:</label>
+                    <select id="cidade-pais" required>
+                        <option value="">Selecione um país...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade-latitude">Latitude:</label>
+                    <input type="text" id="cidade-latitude" placeholder="Ex: -23.5505">
+                </div>
+
+                <div class="form-group">
+                    <label for="cidade-longitude">Longitude:</label>
+                    <input type="text" id="cidade-longitude" placeholder="Ex: -46.6333">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="fecharModalCidade()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal do Clima -->
+    <div id="modal-clima" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalClima()">&times;</span>
+            <h3>🌤️ Clima Atual</h3>
+            <div id="clima-content">
+                <!-- Informações do clima serão carregadas aqui -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 CRUD Mundo - Desenvolvido para Atividade Avaliativa</p>
+    </footer>
+
+    <script src="js/cidades.js"></script>
+</body>
+</html>
