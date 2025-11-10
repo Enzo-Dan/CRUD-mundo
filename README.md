@@ -44,5 +44,5 @@ Sistema web completo para gerenciamento de dados geogr√°ficos, permitindo opera√
 - Navegador web moderno
 
    ```bash
-   git clone [url-do-repositorio]
+   git clone https://github.com/Enzo-Dan/CRUD-mundo
    cd crud-mundo
