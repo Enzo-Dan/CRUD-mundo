@@ -21,9 +21,7 @@ Sistema web completo para gerenciamento de dados geográficos, permitindo opera�
 - ✅ CRUD completo para países
 - ✅ CRUD completo para cidades  
 - ✅ Interface responsiva e moderna
-- ✅ Validações de formulário com JavaScript
 - ✅ Integração com APIs externas
-- ✅ Sistema de busca e filtros
 - ✅ Estatísticas em tempo real
 - ✅ Confirmações para exclusões
 
